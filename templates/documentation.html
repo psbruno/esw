@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">API Documentation</a>
+    </nav>
+    <div class="container mt-5">
+        <h1>API Documentation</h1>
+        
+        <div class="card mb-3">
+            <div class="card-header">
+                GET /tasks
+            </div>
+            <div class="card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+
+                <h5>Request</h5>
+                <pre><code>GET /tasks HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+Authorization: Bearer &lt;token&gt;</code></pre>
+
+                <h5>Parameters</h5>
+                <p>Nenhum.</p>
+
+                <h5>Response</h5>
+                <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "id": 1,
+        "title": "Lorem Ipsum",
+        "description": "Lorem ipsum dolor sit amet"
+    },
+    {
+        "id": 2,
+        "title": "Dolor Sit",
+        "description": "Consectetur adipiscing elit"
+    }
+]</code></pre>
+
+                <h5>Errors</h5>
+                <p><strong>401 Unauthorized</strong></p>
+                <pre><code>HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{
+    "error": "Unauthorized",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+}</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

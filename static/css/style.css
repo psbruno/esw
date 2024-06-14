@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card pre {
+    background: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #e3e3e3;
+}

@@ -19,13 +19,18 @@
                 GET /tasks
             </div>
             <div class="card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                <p>
+                    API para Extração de Texto desenvolvida para a disciplina de Engenharia de Software do PPG-CC da UNIFESP. Esta API foi criada para automatizar o processo de validação dos Part Numbers (PN) em uma fábrica do setor aeronáutico. A API recebe uma imagem contendo o PN e retorna o texto extraído a partir da mesma, utilizando técnicas de processamento de imagem e OCR (Optical Character Recognition).
+                    Esta API foi desenvolvida para melhorar a rastreabilidade e reduzir erros humanos no processo de validação dos Part Numbers na linha de produção. Seguindo as melhores práticas de Engenharia de Software, a solução inclui segurança, documentação, versionamento de endpoints, cobertura de código e monitoramento. A API está hospedada no Google Cloud Platform (GCP) usando o App Engine, com deployment automatizado pelo Bitbucket utilizando CI & CD.
+                </p>
 
-                <h5>Request</h5>
-                <pre><code>GET /tasks HTTP/1.1
-Host: localhost:5000
-Content-Type: application/json
-Authorization: Bearer &lt;token&gt;</code></pre>
+                <h5>Request - Rota Principal</h5>
+                Esta rota recebe uma imagem no formato multipart/form-data e retorna o texto extraído da imagem
+                <pre><code>
+                    URL: ‘/extract-text’
+                    Método:’POST’
+                    Content-Type: application/json
+                    Authorization: Bearer &lt;token&gt;</code></pre>
 
                 <h5>Parameters</h5>
                 <p>Nenhum.</p>

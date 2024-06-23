@@ -4,100 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentação da API para Extração de Texto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>API para Extração de Texto</h1>
-            <p>Desenvolvida para a disciplina de Engenharia de Software do PPG-CC da UNIFESP.</p>
-        </header>
-        <main>
-            <section>
-                <h2>Apresentação</h2>
-                <p>Esta API foi criada para automatizar o processo de validação dos Part Numbers (PN) em uma fábrica do setor aeronáutico. A API recebe uma imagem contendo o PN e retorna o texto extraído a partir da mesma, utilizando técnicas de processamento de imagem e OCR (Optical Character Recognition).</p>
-                <p>Esta API foi desenvolvida para melhorar a rastreabilidade e reduzir erros humanos no processo de validação dos Part Numbers na linha de produção. Seguindo as melhores práticas de Engenharia de Software, a solução inclui segurança, documentação, versionamento de endpoints, cobertura de código e monitoramento. A API está hospedada no Google Cloud Platform (GCP) usando o App Engine, com deployment automatizado pelo Bitbucket utilizando CI & CD.</p>
-            </section>
-            <section>
-                <h2>Requisições</h2>
-                <div class="endpoint">
-                    <h3>Rota Principal</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Documentação da API</a>
+    </nav>
+    <div class="container mt-5">
+        <h1>Documentação da API para Extração de Texto</h1>
+        
+        <section class="mb-5">
+            <h2>Apresentação</h2>
+            <p>Esta API foi criada para automatizar o processo de validação dos Part Numbers (PN) em uma fábrica do setor aeronáutico. A API recebe uma imagem contendo o PN e retorna o texto extraído a partir da mesma, utilizando técnicas de processamento de imagem e OCR (Optical Character Recognition).</p>
+            <p>Esta API foi desenvolvida para melhorar a rastreabilidade e reduzir erros humanos no processo de validação dos Part Numbers na linha de produção. Seguindo as melhores práticas de Engenharia de Software, a solução inclui segurança, documentação, versionamento de endpoints, cobertura de código e monitoramento. A API está hospedada no Google Cloud Platform (GCP) usando o App Engine, com deployment automatizado pelo Bitbucket utilizando CI & CD.</p>
+        </section>
+
+        <section class="mb-5">
+            <h2>Requisições</h2>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Rota Principal
+                </div>
+                <div class="card-body">
                     <p><strong>URL:</strong> <code>/extract-text</code></p>
                     <p><strong>Método:</strong> <code>POST</code></p>
                     <p><strong>Descrição:</strong> Esta rota recebe uma imagem no formato multipart/form-data e retorna o texto extraído da imagem.</p>
                 </div>
-                <div class="endpoint">
-                    <h3>Rota de Teste</h3>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Rota de Teste
+                </div>
+                <div class="card-body">
                     <p><strong>URL:</strong> <code>/</code></p>
                     <p><strong>Método:</strong> <code>GET</code></p>
                     <p><strong>Descrição:</strong> Rota simples para verificar se a API está ativa. Retorna "Hello, World!".</p>
                 </div>
-            </section>
-            <section>
-                <h2>Parâmetros</h2>
-                <div class="parameter">
-                    <h3>/extract-text</h3>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Parâmetros</h2>
+            <div class="card mb-3">
+                <div class="card-header">
+                    /extract-text
+                </div>
+                <div class="card-body">
                     <p><strong>image (obrigatório):</strong> Arquivo de imagem enviado no formato multipart/form-data.</p>
                     <p><strong>Tipo:</strong> Arquivo de imagem (PNG, JPEG, etc.)</p>
                     <p><strong>Descrição:</strong> A imagem que contém o PN a ser extraído.</p>
                 </div>
-                <div class="parameter">
-                    <h3>/</h3>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    /
+                </div>
+                <div class="card-body">
                     <p>Não há parâmetros para esta rota.</p>
                 </div>
-            </section>
-            <section>
-                <h2>Respostas</h2>
-                <div class="response">
-                    <h3>/extract-text</h3>
-                    <h4>Resposta de Sucesso</h4>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Respostas</h2>
+            <div class="card mb-3">
+                <div class="card-header">
+                    /extract-text
+                </div>
+                <div class="card-body">
+                    <h5>Resposta de Sucesso</h5>
                     <p><strong>Status Code:</strong> <code>200 OK</code></p>
-                    <p><strong>Corpo da Resposta (json):</strong></p>
-                    <pre>{
+                    <pre><code>{
     "extracted_text": "Texto extraído da imagem"
-}</pre>
+}</code></pre>
                     <p><strong>Descrição:</strong> Retorna o texto extraído da imagem enviada.</p>
-                    <p><strong>Exemplo de Resposta:</strong></p>
-                    <pre>{
-    "extracted_text": "PN123456"
-}</pre>
-                </div>
-                <div class="response">
-                    <h4>Erro: Arquivo de Imagem Não Fornecido</h4>
+                    <h5>Erro: Arquivo de Imagem Não Fornecido</h5>
                     <p><strong>Status Code:</strong> <code>400 Bad Request</code></p>
-                    <p><strong>Corpo da Resposta:</strong></p>
-                    <pre>{
+                    <pre><code>{
     "error": "No image file provided"
-}</pre>
-                    <p><strong>Descrição:</strong> Este erro ocorre quando a requisição não contém um arquivo de imagem.</p>
-                    <p><strong>Exemplo de Resposta:</strong></p>
-                    <pre>{
-    "error": "No image file provided"
-}</pre>
-                </div>
-                <div class="response">
-                    <h4>Erro: Exceção Interna</h4>
+}</code></pre>
+                    <h5>Erro: Exceção Interna</h5>
                     <p><strong>Status Code:</strong> <code>500 Internal Server Error</code></p>
-                    <p><strong>Corpo da Resposta:</strong></p>
-                    <pre>{
+                    <pre><code>{
     "error": "Descrição detalhada do erro"
-}</pre>
-                    <p><strong>Descrição:</strong> Este erro ocorre devido a uma exceção interna durante o processamento da imagem ou a extração do texto.</p>
-                    <p><strong>Exemplo de Resposta:</strong></p>
-                    <pre>{
-    "error": "cannot identify image file <_io.BytesIO object at 0x7f0d2c5e0b30>"
-}</pre>
+}</code></pre>
                 </div>
-            </section>
-            <section>
-                <h2>Exemplo de Requisição</h2>
-                <div class="example">
-                    <h3>Requisição via cURL</h3>
-                    <pre>curl -X POST http://<HOST>:<PORT>/extract-text \
-  -F "image=@/caminho/para/imagem.png"</pre>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    /
                 </div>
-                <div class="example">
-                    <h3>Requisição via Python</h3>
+                <div class="card-body">
+                    <p><strong>Status Code:</strong> <code>200 OK</code></p>
+                    <pre><code>Hello, World!</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2>Exemplo de Requisição</h2>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Requisição via cURL
+                </div>
+                <div class="card-body">
+                    <pre><code>curl -X POST http://<HOST>:<PORT>/extract-text \
+  -F "image=@/caminho/para/imagem.png"</code></pre>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header">
+                    Requisição via Python
+                </div>
+                <div class="card-body">
                     <pre><code>import requests
 
 url = 'http://<HOST>:<PORT>/extract-text'
@@ -106,11 +126,12 @@ files = {'image': open('/caminho/para/imagem.png', 'rb')}
 response = requests.post(url, files=files)
 print(response.json())</code></pre>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 Engenharia de Software do PPG-CC da UNIFESP</p>
-        </footer>
+            </div>
+        </section>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
